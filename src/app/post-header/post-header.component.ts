@@ -20,7 +20,7 @@ export class PostHeaderComponent implements OnInit {
 
   noSort: boolean = false;
 
-  constructor(private postService: PostService, private modalService: ModalDialogService, private viewRef: ViewContainerRef, private modalServices: NgbModal) { }
+  constructor(private postService: PostService, private modalService: ModalDialogService, private viewRef: ViewContainerRef, private FormModalComponent: NgbModal) { }
 
   ngOnInit() {
   }
@@ -33,7 +33,11 @@ export class PostHeaderComponent implements OnInit {
     this.post.loveIts--;
   }
 
-  openNewDialog() {
+  onSaveList() {
+    this.postService.savePosts();
+  }
+
+  openNewDialogDelete() {
     this.modalService.openDialog(this.viewRef, {
       title: 'Confirmez-vous la suppression de ce post ?',
       childComponent: SimpleModalComponent,
@@ -61,4 +65,7 @@ export class PostHeaderComponent implements OnInit {
       ]
     });
   }
+
+
+
 }
