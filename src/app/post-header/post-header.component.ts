@@ -20,7 +20,8 @@ export class PostHeaderComponent implements OnInit {
 
   noSort: boolean = false;
 
-  constructor(private postService: PostService, private modalService: ModalDialogService, private viewRef: ViewContainerRef, private FormModalComponent: NgbModal) { }
+  constructor(private postService: PostService, private modalService: ModalDialogService,
+    private viewRef: ViewContainerRef, private NgbModal: NgbModal, public FormModal: FormModalComponent) { }
 
   ngOnInit() {
   }
@@ -66,6 +67,8 @@ export class PostHeaderComponent implements OnInit {
     });
   }
 
-
+  openFormModal() {
+    this.FormModal.createForm()
+  }
 
 }

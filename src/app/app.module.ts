@@ -15,7 +15,7 @@ import { PostHeaderComponent } from './post-header/post-header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormModalComponent } from './form-modal/form-modal.component';
 import { UserService } from './services/user.service';
 import { AppUserListComponent } from './app-user-list/app-user-list.component';
@@ -58,7 +58,9 @@ const appRoutes: Routes = [
   ],
   providers: [
     PostService,
-    UserService
+    UserService,
+    FormModalComponent,
+    NgbActiveModal
   ],
   bootstrap: [AppComponent],
   entryComponents: [
